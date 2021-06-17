@@ -59,16 +59,22 @@ let femmine = gatti.filter((gat) => {
 console.log(maschi);
 console.log(femmine);
 
-
+const colore = (x) => {
+    if (x == 'maschio'){
+        return 'blue';
+    } else {
+        return 'pink'
+    }
+}
 
 maschi.forEach((gat) => {
     let opacita = (gat.eta / 7.3)
-    document.getElementById('maschi').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: blue; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
+    document.getElementById('maschi').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: ${colore(gat.sesso)}; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
 });
 
 femmine.forEach((gat) => {
     let opacita = (gat.eta / 7.3)
-    document.getElementById('femmine').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: pink; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
+    document.getElementById('femmine').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: ${colore(gat.sesso)}; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
 });
 
 const ladyFirst = [...femmine, ...maschi];
@@ -78,6 +84,6 @@ console.log(ladyFirst);
 
 ladyFirst.forEach((gat) => {
     let opacita = (gat.eta / 7.3)
-    document.getElementById('ladyfirst').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: pink; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
+    document.getElementById('ladyfirst').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: ${colore(gat.sesso)}; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
 });
 
