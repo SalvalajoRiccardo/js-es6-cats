@@ -2,32 +2,44 @@
 const gatti = [
     {
         nome: 'minu',
-        eta: 0.3,
-        colore: '#a432a8',
+        eta: 1.3,
+        colore: '#f0f0f0',
         sesso: 'femmina'
     },
     {
         nome: 'bise',
-        eta: 0.3,
-        colore: '#fff000',
+        eta: 1.3,
+        colore: '#e97801',
+        sesso: 'maschio'
+    },
+    {
+        nome: 'matis',
+        eta: 1.3,
+        colore: '#000000',
         sesso: 'maschio'
     },
     {
         nome: 'principessa',
-        eta: 2.0,
-        colore: '#a472a9',
+        eta: 3.0,
+        colore: '#f0f0f0',
+        sesso: 'femmina'
+    },
+    {
+        nome: 'gigetta',
+        eta: 7.3,
+        colore: '#fff000',
         sesso: 'femmina'
     },
     {
         nome: 'romeo',
-        eta: 3.3,
-        colore: '#f0f0f0',
+        eta: 5.3,
+        colore: '#e97801',
         sesso: 'maschio'
     }
 ];
 
 gatti.forEach((elemento) => {
-    console.log(elemento.colore, elemento.nome);
+    document.getElementById("gatti").innerHTML += `<i style="color:${elemento.colore}" class="fas fa-cat"></i>  ${elemento.nome}`
 });
 
 
@@ -37,6 +49,7 @@ let maschi = gatti.filter((gat) => {
         return true
     } 
 });
+
 let femmine = gatti.filter((gat) => {
     if(gat.sesso == 'femmina') {
         return true
@@ -49,10 +62,22 @@ console.log(femmine);
 
 
 maschi.forEach((gat) => {
-    document.getElementById('maschi').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: blue; height: 60px;;opacity:${gat.eta}%" class="fas fa-ribbon"></i> <br>`
+    let opacita = (gat.eta / 7.3)
+    document.getElementById('maschi').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: blue; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
 });
 
 femmine.forEach((gat) => {
-    document.getElementById('femmine').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: pink; height: 60px;opacity:${gat.eta};" class="fas fa-ribbon"></i> <br>`
+    let opacita = (gat.eta / 7.3)
+    document.getElementById('femmine').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: pink; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
+});
+
+const ladyFirst = [...femmine, ...maschi];
+console.log(ladyFirst);
+
+// document.getElementById('ladyfirst').innerHTML = ladyFirst
+
+ladyFirst.forEach((gat) => {
+    let opacita = (gat.eta / 7.3)
+    document.getElementById('ladyfirst').innerHTML += `<br>${gat.nome} : <i style="color:${gat.colore}" class="fas fa-cat"></i>  <i style="color: pink; height: 60px; opacity:${opacita}" class="fas fa-ribbon"></i> `
 });
 
