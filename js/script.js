@@ -46,10 +46,13 @@ let femmine = gatti.filter((gat) => {
 console.log(maschi);
 console.log(femmine);
 
+
+
 maschi.forEach((gat) => {
-    document.getElementById('maschi').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: blue; height: 60px;;opacity:" class="fas fa-ribbon"></i> <br>`
+    document.getElementById('maschi').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: blue; height: 60px;;opacity:${gat.eta}%" class="fas fa-ribbon"></i> <br>`
 });
 
 femmine.forEach((gat) => {
-    document.getElementById('femmine').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: pink; height: 60px;" class="fas fa-ribbon"></i> <br>`
+    document.getElementById('femmine').innerHTML += `${gat.nome} : ${gat.sesso} <i style="color: pink; height: 60px;opacity:${gat.eta};" class="fas fa-ribbon"></i> <br>`
 });
+
